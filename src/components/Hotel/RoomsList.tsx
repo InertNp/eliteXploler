@@ -11,14 +11,16 @@ interface itemProps {
   roomType: string;
   roomDesc: string;
   rating: number;
+  price: number;
 }
 const RoomList = ({ hotelId }: props) => {
-  console.log(hotelId);
+  // console.log(hotelId);
 
   const [data, setData] = useState([]);
   useEffect(() => {
     axios.get(`${url}/room?id=${hotelId}`).then((e) => {
       setData(e.data.data);
+      // console.log(e);
     });
   }, []);
   return (
@@ -26,7 +28,7 @@ const RoomList = ({ hotelId }: props) => {
       itemLayout="horizontal"
       dataSource={data}
       pagination={{
-        pageSize: 3,
+        pageSize: 2,
         hideOnSinglePage: true,
         align: "center",
       }}
@@ -41,12 +43,20 @@ const RoomList = ({ hotelId }: props) => {
               <Image
                 className="mix-blend-multiply"
                 preview={false}
-                height={100}
-                width={100}
+                height={200}
+                width={200}
                 src={`${imgUrl}/${item.filename}`}
               />
             }
-            title={item.roomType}
+            title={
+              <div>
+                {item.roomType}{" "}
+                <p className="m-0 p-0 font-thin text-sm">
+                  {" "}
+                  Price:NRs.{item.price}
+                </p>
+              </div>
+            }
             description={
               <div>
                 <Rate disabled value={item.rating} />

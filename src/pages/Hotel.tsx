@@ -16,7 +16,7 @@ const Hotel = () => {
       >
         <BiArrowBack />
       </Link>
-      <HotelDesc />
+      <HotelDesc hotelId={hotelId} />
       <HotelService hotelId={hotelId} />
     </div>
   );

@@ -1,15 +1,27 @@
-import { Image, List } from "antd";
-
+import { List } from "antd";
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { url } from "../../api/url";
+import { FcPackage } from "react-icons/fc";
 interface props {
   hotelId: string;
 }
+interface dataprops {
+  packageName: string;
+  packageDesc: string;
+  price: number;
+  id: number;
+}
 const PackageList = ({ hotelId }: props) => {
   console.log(hotelId);
-  const data = [
-    { title: "Package 1" },
-    { title: "Package 2" },
-    { title: "Package 3" },
-  ];
+
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    axios.get(`${url}/package/hotel?hotelId=${hotelId}`).then((e) => {
+      setData(e.data.data);
+      console.log(e.data.data);
+    });
+  }, []);
   return (
     <List
       itemLayout="horizontal"
@@ -18,28 +30,17 @@ const PackageList = ({ hotelId }: props) => {
         pageSize: 3,
         align: "center",
       }}
-      renderItem={(item, index) => (
+      renderItem={(item: dataprops) => (
         <List.Item
           className="hover:bg-slate-200 cursor-pointer"
           onClick={() => {}}
         >
           <List.Item.Meta
-            avatar={
-              <Image
-                className="mix-blend-multiply"
-                preview={false}
-                height={100}
-                width={100}
-                src={`https://xsgames.co/randomusers/avatar.php?g=pixel&key=${index}`}
-              />
-            }
-            title={item.title}
+            avatar={<FcPackage size={90} />}
+            title={item.packageName}
             description={
               <div>
-                <p>
-                  "Ant Design, a design language for background applications, is
-                  refined by Ant UED Team"
-                </p>
+                <p>{item.packageDesc}</p>
               </div>
             }
           />
