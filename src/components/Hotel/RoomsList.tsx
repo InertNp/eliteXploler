@@ -52,7 +52,6 @@ const RoomList = ({ hotelId }: props) => {
               <div>
                 {item.roomType}{" "}
                 <p className="m-0 p-0 font-thin text-sm">
-                  {" "}
                   Price:NRs.{item.price}
                 </p>
               </div>

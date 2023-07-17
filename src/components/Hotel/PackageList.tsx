@@ -13,13 +13,13 @@ interface dataprops {
   id: number;
 }
 const PackageList = ({ hotelId }: props) => {
-  console.log(hotelId);
+  // console.log(hotelId);
 
   const [data, setData] = useState([]);
   useEffect(() => {
     axios.get(`${url}/package/hotel?hotelId=${hotelId}`).then((e) => {
       setData(e.data.data);
-      console.log(e.data.data);
+      // console.log(e.data.data);
     });
   }, []);
   return (
@@ -27,7 +27,8 @@ const PackageList = ({ hotelId }: props) => {
       itemLayout="horizontal"
       dataSource={data}
       pagination={{
-        pageSize: 3,
+        pageSize: 2,
+        hideOnSinglePage: true,
         align: "center",
       }}
       renderItem={(item: dataprops) => (
@@ -37,7 +38,14 @@ const PackageList = ({ hotelId }: props) => {
         >
           <List.Item.Meta
             avatar={<FcPackage size={90} />}
-            title={item.packageName}
+            title={
+              <div>
+                {item.packageName}
+                <p className="m-0 p-0 font-thin text-sm">
+                  Price:NRs.{item.price}
+                </p>
+              </div>
+            }
             description={
               <div>
                 <p>{item.packageDesc}</p>
