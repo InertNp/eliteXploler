@@ -1,7 +1,12 @@
-import React from "react";
+import SideBar from "../components/Dashboard/SideBar";
 
 const Dashboard = () => {
-  return <div>this is dashboard</div>;
+  return (
+    <div className="flex flex-row">
+      <SideBar />
+      <div>contents</div>
+    </div>
+  );
 };
 
 export default Dashboard;

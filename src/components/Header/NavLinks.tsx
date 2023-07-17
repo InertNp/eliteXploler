@@ -21,9 +21,12 @@ const NavLinks = () => {
         <Link to={"/contact"} className={navLink}>
           Contact
         </Link>
-        <Link to={"/booking"} className={navLink}>
-          Booking
-        </Link>
+        {isLoggedIn ? (
+          <Link to={"/booking"} className={navLink}>
+            Bookings
+          </Link>
+        ) : null}
+
         <Link to={"/places"} className={navLink}>
           Places
         </Link>

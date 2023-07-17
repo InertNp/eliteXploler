@@ -1,4 +1,4 @@
-import { Pagination } from "antd";
+import { Empty, Pagination } from "antd";
 import HotelList from "./HotelList";
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -13,12 +13,16 @@ const HotelCon = ({ id }: props) => {
   const [total, setTotal] = useState(0);
   const [data, setData] = useState([] || null);
   const [place, setPlace] = useState("");
+  const [empty, setEmpty] = useState(false);
   useEffect(() => {
-    axios.get(`${url}/hotel?page=${page}&size=6`).then((e) => {
+    axios.get(`${url}/hotel?page=${page}&size=6&id=${id}`).then((e) => {
       setData(e.data.data.content);
       setTotal(e.data.data.totalElements || 0);
-      // setPlace(e.data.data.content.placeName);
-      console.log(e.data.data);
+
+      setEmpty(e.data.data.empty);
+    });
+    axios.get(`${url}/places/id/${id}`).then((e) => {
+      setPlace(e.data.data.placeName);
     });
   }, []);
   return (
@@ -31,6 +35,7 @@ const HotelCon = ({ id }: props) => {
           return <HotelList item={item} key={index} />;
         })}
       </div>
+      {empty ? <Empty /> : null}
       <div className="w-full flex justify-center my-5">
         <Pagination
           current={page + 1}

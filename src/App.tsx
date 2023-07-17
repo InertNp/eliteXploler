@@ -11,9 +11,11 @@ import Places from "./pages/Places";
 import Hotels from "./pages/Hotels";
 import { useEffect } from "react";
 import { setGlobalState, useGlobalState } from "./context/globalHook";
+import Dashboard from "./pages/Dashboard";
+import Hotel from "./pages/Hotel";
 const App = () => {
   const [isLoggedIn] = useGlobalState("isLoggedIn");
-
+  const [userRole] = useGlobalState("userRole");
   useEffect(() => {
     const iniloggedIn = localStorage.getItem("isLoggedIn");
     const loggedIn = iniloggedIn == null ? false : true;
@@ -34,7 +36,13 @@ const App = () => {
       <Content className="w-full h-full">
         <Routes>
           {isLoggedIn ? (
-            <></>
+            <>
+              {userRole === "User" ? null : (
+                <>
+                  <Route path={`dashboard`} element={<Dashboard />} />
+                </>
+              )}
+            </>
           ) : (
             <>
               <Route path={`login`} element={<Login />} />
@@ -45,6 +53,7 @@ const App = () => {
           <Route path={`contact`} element={<Contact />} />
           <Route path={`places`} element={<Places />} />
           <Route path={`hotels/:placeId`} element={<Hotels />} />
+          <Route path={`hotel/:placeId/:hotelId`} element={<Hotel />} />
           <Route path={`/*`} element={<Landing />} />
         </Routes>
       </Content>

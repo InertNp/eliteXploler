@@ -9,6 +9,7 @@ interface props {
 }
 const PlacesList = ({ item }: props) => {
   const [load, setLoad] = useState(true);
+
   const navigate = useNavigate();
   return (
     <Card
