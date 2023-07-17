@@ -1,11 +1,11 @@
 import { Card, Image } from "antd";
 import { useNavigate } from "react-router-dom";
-import { useGlobalState } from "../../context/globalHook";
+
 import { imgUrl } from "../../api/url";
 import { useState } from "react";
 
 interface props {
-  item: { placeName: string; filename: string; shortDesc: string };
+  item: { id: number; placeName: string; filename: string; shortDesc: string };
 }
 const PlacesList = ({ item }: props) => {
   const [load, setLoad] = useState(true);
@@ -26,7 +26,7 @@ const PlacesList = ({ item }: props) => {
       }
       loading={load}
       onClick={() => {
-        navigate(`/hotels/${item.placeName}`);
+        navigate(`/hotels/${item.id}`);
       }}
     >
       <h1 className="m-0 p-0 text-xl text-center font-semibold ">

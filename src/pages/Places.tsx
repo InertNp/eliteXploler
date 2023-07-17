@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
 import PlacesList from "../components/Places/PlacesList";
-import { useGlobalState } from "../context/globalHook";
+
 import axios from "axios";
 import { url } from "../api/url";
-import { Spin } from "antd";
 
 const Places = () => {
   const [data, setData] = useState([]);

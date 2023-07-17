@@ -8,7 +8,7 @@ const NavLinks = () => {
   const navigate = useNavigate();
   const [isLoggedIn] = useGlobalState("isLoggedIn");
   const [name] = useGlobalState("fullName");
-
+  const [role] = useGlobalState("userRole");
   return (
     <nav className="basis-5/6   hidden md:flex">
       <div className="flex items-center justify-center gap-4 w-1/2 ">
@@ -36,6 +36,19 @@ const NavLinks = () => {
           >
             {name}
           </Link>
+          {/* Hotel_Administrator */}
+          {role === "Hotel_Administrator" ? (
+            <Button
+              className="bg-slate-800  "
+              type="primary"
+              onClick={() => {
+                navigate("/dashboard");
+              }}
+            >
+              Dashboard
+            </Button>
+          ) : null}
+          {/* logout button */}
           <Button className="bg-slate-800  " type="primary" onClick={logout}>
             Logout
           </Button>

@@ -2,12 +2,19 @@ import { useNavigate } from "react-router-dom";
 
 import { Card, Image, Rate } from "antd";
 import { useState } from "react";
+import { imgUrl } from "../../api/url";
 interface props {
-  item: { name: string; img: string; content: string; rating: number };
+  item: {
+    id: number;
+    hotelName: string;
+    hotelDesc: string;
+    ratings: number;
+    filename: string;
+  };
 }
 const HotelList = ({ item }: props) => {
   const [load, setLoad] = useState(true);
-
+  // console.log(item);
   const navigate = useNavigate();
   return (
     <Card
@@ -18,21 +25,22 @@ const HotelList = ({ item }: props) => {
           onLoad={() => {
             setLoad(false);
           }}
-          src={`https://source.unsplash.com/1920x1080?${item.img}`}
+          src={`${imgUrl}/${item.filename}`}
           preview={false}
         />
       }
       loading={load}
       onClick={() => {
-        navigate(`/hotels/${item.name}`);
+        navigate(`/hotel/${item.id}`);
       }}
     >
-      <h1 className="m-0 p-0 text-xl text-center font-semibold ">
-        {item.name}
+      <h1 className="m-0 p-0 text-xl text-center font-semibold capitalize ">
+        {item.hotelName}
       </h1>
       <div className="flex flex-col items-center justify-center">
-        <Rate disabled value={item.rating} />
-        {item.content}
+        <Rate disabled value={item.ratings} />
+        {item.hotelDesc.slice(0, 80)}
+        {"...."}
       </div>
     </Card>
   );
