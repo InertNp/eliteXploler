@@ -8,7 +8,7 @@ const NavBar = () => {
         to={"/"}
         className="flex items-center text-xl basis-1/5 text-white hover:text-white"
       >
-        EliteExplorer
+        EliteXplorer
       </Link>
       <NavLinks />
     </header>

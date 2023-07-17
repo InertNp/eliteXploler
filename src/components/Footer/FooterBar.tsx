@@ -9,7 +9,7 @@ const FooterBar = () => {
         to={"/"}
         className="flex items-center justify-center text-xl basis-1/5 text-black hover:text-slate-800"
       >
-        EliteExplorer
+        EliteXplorer
       </Link>
       <FooterLinks />
       <p className="text-center basis-2/5 ">Made by bla bla vla</p>
