@@ -16,6 +16,7 @@ import Hotel from "./pages/Hotel";
 import Room from "./pages/Room";
 import Package from "./pages/Package";
 import Booking from "./pages/Booking";
+import Setting from "./pages/Setting";
 const App = () => {
   const [isLoggedIn] = useGlobalState("isLoggedIn");
   const [userRole] = useGlobalState("userRole");
@@ -41,6 +42,7 @@ const App = () => {
           {isLoggedIn ? (
             <>
               <Route path={`booking`} element={<Booking />} />
+              <Route path={`setting`} element={<Setting />} />
               {userRole === "User" ? null : (
                 <>
                   <Route path={`dashboard`} element={<Dashboard />} />

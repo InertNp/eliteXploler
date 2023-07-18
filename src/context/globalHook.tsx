@@ -10,6 +10,7 @@ const { setGlobalState, useGlobalState } = createGlobalState({
   hotelLoad: true,
   hotelReviewLoad: true,
   hotelRoomReviewLoad: true,
+  bookingLoad: true,
 });
 
 export { setGlobalState, useGlobalState };

@@ -25,6 +25,6 @@ export function login(data: loginPorps) {
     })
     .catch((err) => {
       console.log(err);
-      message.warning("Username or Password Incorrect", 2000);
+      message.warning("Username or Password Incorrect", 1);
     });
 }
