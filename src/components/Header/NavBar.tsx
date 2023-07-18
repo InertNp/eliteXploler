@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import NavLinks from "./NavLinks";
+import { webName } from "../../api/Name";
 
 const NavBar = () => {
   return (
@@ -8,7 +9,7 @@ const NavBar = () => {
         to={"/"}
         className="flex items-center text-xl basis-1/5 text-white hover:text-white"
       >
-        EliteXplorer
+        {webName}
       </Link>
       <NavLinks />
     </header>

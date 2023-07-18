@@ -3,6 +3,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { url } from "../../api/url";
 import { FcPackage } from "react-icons/fc";
+import { useNavigate } from "react-router-dom";
 interface props {
   hotelId: string;
 }
@@ -14,7 +15,7 @@ interface dataprops {
 }
 const PackageList = ({ hotelId }: props) => {
   // console.log(hotelId);
-
+  const navigate = useNavigate();
   const [data, setData] = useState([]);
   useEffect(() => {
     axios.get(`${url}/package/hotel?hotelId=${hotelId}`).then((e) => {
@@ -34,7 +35,9 @@ const PackageList = ({ hotelId }: props) => {
       renderItem={(item: dataprops) => (
         <List.Item
           className="hover:bg-slate-200 cursor-pointer"
-          onClick={() => {}}
+          onClick={() => {
+            navigate(`/package/${item.id}`);
+          }}
         >
           <List.Item.Meta
             avatar={<FcPackage size={90} />}

@@ -5,24 +5,20 @@ import { url } from "../api/url";
 import RoomDetail from "../components/Room/RoomDetail";
 import { BiArrowBack } from "react-icons/bi";
 import { Button } from "antd";
-import RoomComment from "../components/Room/RoomComment";
-import { useGlobalState } from "../context/globalHook";
-import RoomCom from "../components/Room/RoomCom";
 
-const Room = () => {
-  const [isLoggedIn] = useGlobalState("isLoggedIn");
+import { useGlobalState } from "../context/globalHook";
+import PackageDetail from "../components/Package/PackageDetail";
+
+const Package = () => {
   const navigate = useNavigate();
-  const { roomId } = useParams();
+  const { packageId } = useParams();
   const [load] = useGlobalState("hotelRoomReviewLoad");
   const [data, setData] = useState({});
-  const [commentData, setCommentData] = useState([]);
+  console.log(packageId);
   useEffect(() => {
-    axios.get(`${url}/room/by/id/${roomId}`).then((res) => {
+    axios.get(`${url}/room/by/id/${packageId}`).then((res) => {
       setData(res.data.data);
-    });
-    axios.get(`${url}/room/review/by/room?id=${roomId}`).then((res) => {
-      setCommentData(res.data.data);
-      // console.log(res.data);
+      //   console.log(res.data.data);
     });
   }, [load]);
   return (
@@ -36,11 +32,9 @@ const Room = () => {
       >
         <BiArrowBack />
       </Button>
-      <RoomDetail data={data} />
-      {isLoggedIn ? <RoomCom roomId={roomId} /> : null}
-      <RoomComment data={commentData} />
+      <PackageDetail data={data} />
     </div>
   );
 };
 
-export default Room;
+export default Package;

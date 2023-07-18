@@ -13,8 +13,6 @@ export function login(data: loginPorps) {
       password: data.password,
     })
     .then((e) => {
-      message.success(`Login Sucessful`);
-
       localStorage.setItem("token", e.data.token);
       localStorage.setItem("userRole", e.data.userRole);
       localStorage.setItem("fullName", e.data.fullName);
@@ -23,9 +21,10 @@ export function login(data: loginPorps) {
       setGlobalState("token", e.data.token);
       setGlobalState("fullName", e.data?.fullName);
       setGlobalState("userRole", e.data?.userRole);
+      message.success(`Login Sucessful`, 1);
     })
     .catch((err) => {
       console.log(err);
-      message.warning("Username or Password Incorrect");
+      message.warning("Username or Password Incorrect", 2000);
     });
 }

@@ -1,2 +1,5 @@
-export const url = `http://192.168.1.70:5050`;
-export const imgUrl = `http://192.168.1.70:5050/images`;
+// const ip = "localhost";
+const ip = "192.168.1.70";
+export const url = `http://${ip}:5050`;
+export const imgUrl = `http://${ip}:5050/images`;
+export const dummyimgUrl = `https://source.unsplash.com/1920x1080`;

@@ -32,7 +32,7 @@ const HotelList = ({ item }: props) => {
       }
       loading={load}
       onClick={() => {
-        navigate(`/hotel/${item.placeId}/${item.id}`);
+        navigate(`/hotel/${item.id}`);
       }}
     >
       <h1 className="m-0 p-0 text-xl text-center font-semibold capitalize ">

@@ -1,16 +1,24 @@
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { BiArrowBack } from "react-icons/bi";
 import HotelCon from "../components/Hotels/HotelCon";
+import { Button } from "antd";
 
 const Hotels = () => {
+  const navigate = useNavigate();
   const slug = useParams();
   const placeid = slug.placeId || "null";
 
   return (
     <div className=" px-12 py-4 relative">
-      <Link to={"/places"} className="absolute top-0 left-0 p-2 text-[40px]">
+      <Button
+        type="ghost"
+        onClick={() => {
+          navigate(-1);
+        }}
+        className="absolute top-0 left-0 p-2 text-[40px] hover:text-blue-400"
+      >
         <BiArrowBack />
-      </Link>
+      </Button>
 
       <HotelCon id={placeid} />
     </div>

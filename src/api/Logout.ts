@@ -1,3 +1,4 @@
+import { message } from "antd";
 import { setGlobalState } from "../context/globalHook";
 
 export const logout = () => {
@@ -6,4 +7,5 @@ export const logout = () => {
   setGlobalState("token", "");
   setGlobalState("fullName", "");
   setGlobalState("userRole", "");
+  message.success(`Logout Sucessful`, 1);
 };

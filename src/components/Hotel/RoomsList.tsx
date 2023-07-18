@@ -2,6 +2,7 @@ import { Image, List, Rate } from "antd";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { imgUrl, url } from "../../api/url";
+import { useNavigate } from "react-router-dom";
 
 interface props {
   hotelId: string;
@@ -12,10 +13,11 @@ interface itemProps {
   roomDesc: string;
   rating: number;
   price: number;
+  id: number;
 }
 const RoomList = ({ hotelId }: props) => {
   // console.log(hotelId);
-
+  const navigate = useNavigate();
   const [data, setData] = useState([]);
   useEffect(() => {
     axios.get(`${url}/room?id=${hotelId}`).then((e) => {
@@ -23,6 +25,10 @@ const RoomList = ({ hotelId }: props) => {
       // console.log(e);
     });
   }, []);
+  function handleClick(id: number) {
+    // console.log(id);
+    navigate(`/room/${id}`);
+  }
   return (
     <List
       itemLayout="horizontal"
@@ -35,7 +41,7 @@ const RoomList = ({ hotelId }: props) => {
       renderItem={(item: itemProps) => (
         <List.Item
           className="hover:bg-slate-200 cursor-pointer "
-          onClick={() => {}}
+          onClick={() => handleClick(item.id)}
         >
           <List.Item.Meta
             className="px-10"

@@ -13,6 +13,9 @@ import { useEffect } from "react";
 import { setGlobalState, useGlobalState } from "./context/globalHook";
 import Dashboard from "./pages/Dashboard";
 import Hotel from "./pages/Hotel";
+import Room from "./pages/Room";
+import Package from "./pages/Package";
+import Booking from "./pages/Booking";
 const App = () => {
   const [isLoggedIn] = useGlobalState("isLoggedIn");
   const [userRole] = useGlobalState("userRole");
@@ -23,7 +26,7 @@ const App = () => {
     const userRole = localStorage.getItem("userRole");
     const token = localStorage.getItem("token");
     const name = localStorage.getItem("fullName");
-    setGlobalState("token", JSON.stringify(token));
+    setGlobalState("token", token || "");
     setGlobalState("fullName", name || "");
     setGlobalState("userRole", userRole || "");
     setGlobalState("loading", false);
@@ -37,6 +40,7 @@ const App = () => {
         <Routes>
           {isLoggedIn ? (
             <>
+              <Route path={`booking`} element={<Booking />} />
               {userRole === "User" ? null : (
                 <>
                   <Route path={`dashboard`} element={<Dashboard />} />
@@ -53,7 +57,9 @@ const App = () => {
           <Route path={`contact`} element={<Contact />} />
           <Route path={`places`} element={<Places />} />
           <Route path={`hotels/:placeId`} element={<Hotels />} />
-          <Route path={`hotel/:placeId/:hotelId`} element={<Hotel />} />
+          <Route path={`hotel/:hotelId`} element={<Hotel />} />
+          <Route path={`room/:roomId`} element={<Room />} />
+          <Route path={`package/:packageId`} element={<Package />} />
           <Route path={`/*`} element={<Landing />} />
         </Routes>
       </Content>
