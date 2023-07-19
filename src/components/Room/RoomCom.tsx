@@ -26,7 +26,7 @@ const RoomCom = ({ roomId }: any) => {
           },
         }
       )
-      .then((e) => {
+      .then(() => {
         message.success("Review Sucessful", 1);
 
         setLoad(!load);

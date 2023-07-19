@@ -1,9 +1,8 @@
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { BiArrowBack } from "react-icons/bi";
 import HotelDesc from "../../components/Hotel/HotelDesc";
 import HotelService from "../../components/Hotel/HotelService";
 import HotelComment from "../../components/Hotel/HotelComment";
-import { Button } from "antd/es/radio";
 
 const Hotel = () => {
   const slug = useParams();

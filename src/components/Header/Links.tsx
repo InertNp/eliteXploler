@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import { navLink } from "../../utils/NavLink";
 import { useGlobalState } from "../../context/globalHook";

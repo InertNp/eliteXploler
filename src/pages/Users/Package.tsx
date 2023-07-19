@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { url } from "../../api/url";
-import RoomDetail from "../../components/Room/RoomDetail";
+
 import { BiArrowBack } from "react-icons/bi";
 import { Button } from "antd";
 

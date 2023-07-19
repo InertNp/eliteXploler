@@ -1,5 +1,5 @@
-import { Descriptions, Image, Rate } from "antd";
-import { imgUrl } from "../../api/url";
+import { Descriptions } from "antd";
+
 import Booking from "./Booking";
 
 import { useGlobalState } from "../../context/globalHook";

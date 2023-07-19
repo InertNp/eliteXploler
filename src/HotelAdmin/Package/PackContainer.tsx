@@ -1,18 +1,7 @@
-import {
-  Button,
-  Cascader,
-  Form,
-  Image,
-  Input,
-  List,
-  Modal,
-  Rate,
-  Upload,
-  message,
-} from "antd";
+import { Button, Form, Input, List, Modal, message } from "antd";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { imgUrl, url } from "../../api/url";
+import { url } from "../../api/url";
 
 import FormItem from "antd/es/form/FormItem";
 

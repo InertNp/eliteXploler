@@ -6,7 +6,6 @@ import {
   Image,
   Input,
   Upload,
-  message,
 } from "antd";
 import { beforeUpload } from "../../utils/beforeUpload";
 import { imgUrl, url } from "../../api/url";
