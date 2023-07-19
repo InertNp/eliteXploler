@@ -29,7 +29,8 @@ const Roomcontainer = ({ hotelId }: any) => {
   const [img, setImg] = useState("");
   const [status, setStatus] = useState(false);
   const [statusData, setStatusData] = useState([]);
-
+  const [reviewData, setReviewData] = useState([]);
+  const [review, setReview] = useState(false);
   useEffect(() => {
     if (hotelId == 0) {
       message.info("Rooms Loading", 0.5);
@@ -240,6 +241,42 @@ const Roomcontainer = ({ hotelId }: any) => {
       </Modal>
     );
   }
+  function Reviews() {
+    return (
+      <Modal
+        open={review}
+        onOk={() => {
+          setReview(false);
+        }}
+        onCancel={() => {
+          setReview(false);
+        }}
+      >
+        <List
+          dataSource={reviewData}
+          pagination={{
+            hideOnSinglePage: true,
+            align: "center",
+            pageSize: 3,
+          }}
+          renderItem={(item: any) => {
+            return (
+              <List.Item>
+                <div className="flex flex-col">
+                  <p>Review by{item.reviewBy.fullName}</p>
+                  <p>
+                    <Rate disabled value={item.rating} />
+                  </p>
+                  <p>Description:{item.reviewDesc}</p>
+                  <p>Reviewed On:{item.reviewDate}</p>
+                </div>
+              </List.Item>
+            );
+          }}
+        />
+      </Modal>
+    );
+  }
   return (
     <div className="px-5 py-2">
       <Button
@@ -251,6 +288,7 @@ const Roomcontainer = ({ hotelId }: any) => {
       </Button>
       <AddRoom />
       <ChangeStatus />
+      <Reviews />
       <List
         dataSource={data}
         pagination={{
@@ -263,25 +301,39 @@ const Roomcontainer = ({ hotelId }: any) => {
           return (
             <List.Item
               actions={[
-                <Button
-                  onClick={() => {
-                    handleDelete(item.id);
-                  }}
-                >
-                  Delete
-                </Button>,
-                <Button
-                  onClick={() => {
-                    axios
-                      .get(`${url}/room/booking/by/room?roomId=${item.id}`)
-                      .then((res) => {
-                        setStatusData(res.data.data);
-                      });
-                    setStatus(true);
-                  }}
-                >
-                  Booking Details
-                </Button>,
+                <div className="flex flex-col gap-1">
+                  <Button
+                    onClick={() => {
+                      handleDelete(item.id);
+                    }}
+                  >
+                    Delete
+                  </Button>
+                  <Button
+                    onClick={() => {
+                      axios
+                        .get(`${url}/room/booking/by/room?roomId=${item.id}`)
+                        .then((res) => {
+                          setStatusData(res.data.data);
+                        });
+                      setStatus(true);
+                    }}
+                  >
+                    Booking Details
+                  </Button>
+                  <Button
+                    onClick={() => {
+                      axios
+                        .get(`${url}/room/review/by/room?id=${item.id}`)
+                        .then((res) => {
+                          setReviewData(res.data.data);
+                          setReview(true);
+                        });
+                    }}
+                  >
+                    Reviews
+                  </Button>
+                </div>,
               ]}
             >
               <List.Item.Meta
