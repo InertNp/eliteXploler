@@ -1,5 +1,5 @@
-import { Info } from "../components/About/Info";
-import Testimonials from "../components/About/Testimonials";
+import { Info } from "../../components/About/Info";
+import Testimonials from "../../components/About/Testimonials";
 
 const About = () => {
   return (

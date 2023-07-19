@@ -11,6 +11,7 @@ const NavBar = () => {
       >
         {webName}
       </Link>
+
       <NavLinks />
     </header>
   );

@@ -1,11 +1,11 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { url } from "../api/url";
-import { useGlobalState } from "../context/globalHook";
-import { header } from "../api/header";
+import { url } from "../../api/url";
+import { useGlobalState } from "../../context/globalHook";
+import { header } from "../../api/header";
 import { Button, Descriptions, Form, Input, Modal, message } from "antd";
 import { useForm } from "antd/es/form/Form";
-import { logout } from "../api/Logout";
+import { logout } from "../../api/Logout";
 
 const Setting = () => {
   const [formE] = useForm();

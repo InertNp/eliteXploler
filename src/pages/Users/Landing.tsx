@@ -1,6 +1,6 @@
-import Carausel from "../components/Landing/Carausel";
-import OurServices from "../components/Landing/OurServices";
-import TopDestinations from "../components/Landing/TopDestinations";
+import Carausel from "../../components/Landing/Carausel";
+import OurServices from "../../components/Landing/OurServices";
+import TopDestinations from "../../components/Landing/TopDestinations";
 
 const Landing = () => {
   return (

@@ -1,13 +1,13 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { url } from "../api/url";
-import RoomDetail from "../components/Room/RoomDetail";
+import { url } from "../../api/url";
+import RoomDetail from "../../components/Room/RoomDetail";
 import { BiArrowBack } from "react-icons/bi";
 import { Button } from "antd";
 
-import { useGlobalState } from "../context/globalHook";
-import PackageDetail from "../components/Package/PackageDetail";
+import { useGlobalState } from "../../context/globalHook";
+import PackageDetail from "../../components/Package/PackageDetail";
 
 const Package = () => {
   const navigate = useNavigate();

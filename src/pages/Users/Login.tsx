@@ -1,5 +1,5 @@
 import { Image } from "antd";
-import LoginForm from "../components/Login/LoginForm";
+import LoginForm from "../../components/Login/LoginForm";
 
 export const Login = () => {
   return (

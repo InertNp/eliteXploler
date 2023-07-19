@@ -1,6 +1,6 @@
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { BiArrowBack } from "react-icons/bi";
-import HotelCon from "../components/Hotels/HotelCon";
+import HotelCon from "../../components/Hotels/HotelCon";
 import { Button } from "antd";
 
 const Hotels = () => {

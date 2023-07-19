@@ -1,5 +1,5 @@
 import { Image } from "antd";
-import RegisterForm from "../components/Register/RegisterForm";
+import RegisterForm from "../../components/Register/RegisterForm";
 
 const Register = () => {
   return (

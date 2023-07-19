@@ -1,38 +1,33 @@
 import { Button } from "antd";
 import { Link, useNavigate } from "react-router-dom";
-import { navLink } from "../../utils/NavLink";
+
 import { useGlobalState } from "../../context/globalHook";
 import { logout } from "../../api/Logout";
+import Links from "./Links";
 
 const NavLinks = () => {
   const navigate = useNavigate();
   const [isLoggedIn] = useGlobalState("isLoggedIn");
   const [name] = useGlobalState("fullName");
   const [role] = useGlobalState("userRole");
+  // console.log(role);
   return (
-    <nav className="basis-5/6   hidden md:flex">
-      <div className="flex items-center justify-center gap-4 w-1/2 ">
-        <Link to={"/home"} className={navLink}>
-          Home
-        </Link>
-        <Link to={"/about"} className={navLink}>
-          About
-        </Link>
-        <Link to={"/contact"} className={navLink}>
-          Contact
-        </Link>
-        {isLoggedIn ? (
-          <Link to={"/booking"} className={navLink}>
-            Bookings
-          </Link>
-        ) : null}
-
-        <Link to={"/places"} className={navLink}>
-          Places
-        </Link>
-      </div>
+    <nav className="basis-5/6   hidden sm:flex">
       {isLoggedIn ? (
-        <div className="flex items-center justify-end gap-4 w-1/2">
+        // here after login
+        <>
+          {role == "User" ? (
+            // here after ROle
+            <Links />
+          ) : null}
+        </>
+      ) : (
+        // here before login
+        <Links />
+      )}
+
+      {isLoggedIn ? (
+        <div className="flex items-center justify-end gap-4 w-full">
           <Link
             to={`/setting`}
             className="text-white capitalize text-semibold text-lg"
@@ -40,17 +35,7 @@ const NavLinks = () => {
             {name}
           </Link>
           {/* Hotel_Administrator */}
-          {role === "Hotel_Administrator" ? (
-            <Button
-              className="bg-slate-800  "
-              type="primary"
-              onClick={() => {
-                navigate("/dashboard");
-              }}
-            >
-              Dashboard
-            </Button>
-          ) : null}
+
           {/* logout button */}
           <Button className="bg-slate-800  " type="primary" onClick={logout}>
             Logout

@@ -1,13 +1,13 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { url } from "../api/url";
-import RoomDetail from "../components/Room/RoomDetail";
+import { url } from "../../api/url";
+import RoomDetail from "../../components/Room/RoomDetail";
 import { BiArrowBack } from "react-icons/bi";
 import { Button } from "antd";
-import RoomComment from "../components/Room/RoomComment";
-import { useGlobalState } from "../context/globalHook";
-import RoomCom from "../components/Room/RoomCom";
+import RoomComment from "../../components/Room/RoomComment";
+import { useGlobalState } from "../../context/globalHook";
+import RoomCom from "../../components/Room/RoomCom";
 
 const Room = () => {
   const [isLoggedIn] = useGlobalState("isLoggedIn");

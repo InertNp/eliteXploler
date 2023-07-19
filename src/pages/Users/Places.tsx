@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import PlacesList from "../components/Places/PlacesList";
+import PlacesList from "../../components/Places/PlacesList";
 
 import axios from "axios";
-import { url } from "../api/url";
+import { url } from "../../api/url";
 
 const Places = () => {
   const [data, setData] = useState([]);

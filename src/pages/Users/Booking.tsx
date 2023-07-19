@@ -1,10 +1,10 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { header } from "../api/header";
-import { url } from "../api/url";
-import { useGlobalState } from "../context/globalHook";
+import { header } from "../../api/header";
+import { url } from "../../api/url";
+import { useGlobalState } from "../../context/globalHook";
 import { Button, List } from "antd";
-import BookingItems from "../components/Booking/BookingItems";
+import BookingItems from "../../components/Booking/BookingItems";
 
 const Booking = () => {
   const [token] = useGlobalState("token");

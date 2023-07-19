@@ -50,7 +50,7 @@ const Booking = ({ packageId }: any) => {
       >
         <DatePicker format={"YYYY-M-D"} />
       </Form.Item>
-      <Form.Item label="Additional Request" name={"req"}>
+      <Form.Item label="Additional Request" name={"req"} className="w-96">
         <Input.TextArea />
       </Form.Item>
       {/* <div className="flex justify-center w-full"> */}
