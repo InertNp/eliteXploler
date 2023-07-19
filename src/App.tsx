@@ -73,6 +73,7 @@ const App = () => {
                       <Route path={`/*`} element={<Dashboard />} />
                       <Route path={`/rooms`} element={<HAroom />} />
                       <Route path={`/package`} element={<HApack />} />
+                      <Route path={`setting`} element={<Setting />} />
                     </Routes>
                   </>
                 ) : null}
