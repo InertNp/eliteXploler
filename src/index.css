@@ -10,3 +10,7 @@ body{
 .bor{
     border: 2px solid red !important;
 }
+p{
+    margin: 0 ;
+    padding: 0 ;
+}

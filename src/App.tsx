@@ -11,14 +11,17 @@ import Places from "./pages/Users/Places";
 import Hotels from "./pages/Users/Hotels";
 import { useEffect } from "react";
 import { setGlobalState, useGlobalState } from "./context/globalHook";
-import Dashboard from "./pages/Admin/Dashboard";
+import Dashboard from "./pages/HotelAdmin/Dashboard";
 import Hotel from "./pages/Users/Hotel";
 import Room from "./pages/Users/Room";
 import Package from "./pages/Users/Package";
 import Booking from "./pages/Users/Booking";
 import Setting from "./pages/Users/Setting";
-import { Layout } from "antd";
+
 import SideBar from "./HotelAdmin/SideBar/SideBar";
+import { roleAdmin, roleHotelAdmin, roleUser } from "./utils/Role";
+import HAroom from "./pages/HotelAdmin/HAroom";
+import HApack from "./pages/HotelAdmin/HApack";
 const App = () => {
   const [isLoggedIn] = useGlobalState("isLoggedIn");
   const [userRole] = useGlobalState("userRole");
@@ -44,7 +47,7 @@ const App = () => {
         {isLoggedIn ? (
           // here after login
           <>
-            {userRole === "User" ? (
+            {userRole === roleUser ? (
               // here if user role is User and is loggedin
               <div>
                 <Routes>
@@ -62,11 +65,24 @@ const App = () => {
               </div>
             ) : (
               <div className="flex flex-row">
-                <SideBar />
-                {/* here routes for admin and hotel admin */}
-                <Routes>
-                  <Route path={`dashboard`} element={<Dashboard />} />
-                </Routes>
+                {/* here routes for  hotel admin */}
+                {userRole === roleHotelAdmin ? (
+                  <>
+                    <SideBar />
+                    <Routes>
+                      <Route path={`/*`} element={<Dashboard />} />
+                      <Route path={`/rooms`} element={<HAroom />} />
+                      <Route path={`/package`} element={<HApack />} />
+                    </Routes>
+                  </>
+                ) : null}
+                {userRole === roleAdmin ? (
+                  <>
+                    <Routes>
+                      {/* <Route path={`/*`} element={<Dashboard />} /> */}
+                    </Routes>
+                  </>
+                ) : null}
               </div>
             )}
           </>

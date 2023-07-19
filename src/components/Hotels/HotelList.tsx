@@ -23,6 +23,7 @@ const HotelList = ({ item }: props) => {
       bordered={false}
       cover={
         <Image
+          height={200}
           onLoad={() => {
             setLoad(false);
           }}

@@ -16,7 +16,7 @@ const Package = () => {
   const [data, setData] = useState({});
   console.log(packageId);
   useEffect(() => {
-    axios.get(`${url}/room/by/id/${packageId}`).then((res) => {
+    axios.get(`${url}/package/by?id=${packageId}`).then((res) => {
       setData(res.data.data);
       //   console.log(res.data.data);
     });
