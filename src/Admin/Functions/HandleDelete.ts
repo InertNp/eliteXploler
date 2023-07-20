@@ -8,7 +8,7 @@ interface props {
 }
 export function handleDelete(data: props) {
   axios
-    .get(`${url}/${data.url}/${data.id}`)
+    .get(`${url}/${data.url}${data.id}`)
     .then(() => {
       message.success("Delete Sucessfull");
       window.location.reload();

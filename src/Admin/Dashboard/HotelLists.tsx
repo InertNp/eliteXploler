@@ -27,7 +27,7 @@ const HotelLists = () => {
           <List.Item
             actions={[
               <div>
-                <DeleteButton id={item.id} />
+                <DeleteButton id={item.id} url="hotel/delete?id=" />
               </div>,
             ]}
           >

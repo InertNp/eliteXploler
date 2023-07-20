@@ -42,7 +42,9 @@ const PlacesListA = () => {
         renderItem={(item: placeDataType) => {
           return (
             <List.Item
-              actions={[<DeleteButton id={item.id} url={"/place/delete"} />]}
+              actions={[
+                <DeleteButton id={item.id} url={"places/delete?id="} />,
+              ]}
             >
               <List.Item.Meta
                 avatar={
