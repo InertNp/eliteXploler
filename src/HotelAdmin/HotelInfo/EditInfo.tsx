@@ -6,6 +6,7 @@ import {
   Image,
   Input,
   Upload,
+  message,
 } from "antd";
 import { beforeUpload } from "../../utils/beforeUpload";
 import { imgUrl, url } from "../../api/url";
@@ -25,13 +26,11 @@ const EditInfo = ({ data }: any) => {
   const [img, setimg] = useState("");
   const [place, setPlace] = useState([]);
   const id = data.id;
-  // console.log(id);
-  // console.log(edit);
+
   function handleEdit(e: any) {
     console.log(e);
     if (upload == false) {
       console.log("upload is false");
-
       axios
         .post(
           `${url}/hotel`,
@@ -40,13 +39,13 @@ const EditInfo = ({ data }: any) => {
             ratings: data.ratings,
             filename: data.filename,
             hotelDesc: e.hotelDesc,
-            placeId: 2,
+            placeId: e.placeName[0],
             id: id,
           },
           header(token)
         )
         .then((res) => {
-          console.log(res);
+          message.success("Hotel Edited ");
         });
     } else {
       console.log("upload is true");
@@ -58,13 +57,13 @@ const EditInfo = ({ data }: any) => {
             ratings: data.ratings,
             filename: img,
             hotelDesc: e.hotelDesc,
-            placeId: 2,
+            placeId: e.placeName[0],
             id: id,
           },
           header(token)
         )
         .then((res) => {
-          console.log(res);
+          message.success("No image uploaded but edited");
         });
     }
 
