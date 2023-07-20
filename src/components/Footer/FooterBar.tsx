@@ -13,7 +13,7 @@ const FooterBar = () => {
         {webName}
       </Link>
       <FooterLinks />
-      <p className="text-center basis-2/5 ">Made by bla bla vla</p>
+      <p className="text-center basis-2/5 ">Made by Milan Tamang</p>
     </footer>
   );
 };
