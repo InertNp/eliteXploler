@@ -24,6 +24,9 @@ const Links = () => {
       <Link to={"/places"} className={navLink}>
         Places
       </Link>
+      <Link to={"/gallery"} className={navLink}>
+        Gallery
+      </Link>
     </div>
   );
 };

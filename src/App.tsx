@@ -26,6 +26,10 @@ import AdminDashboard from "./Admin/Pages/AdminDashboard";
 import AdminSideBar from "./Admin/Components/AdminSidebar";
 import RoomBookings from "./Admin/Pages/RoomBooking";
 import PackBooking from "./Admin/Pages/PackBooking";
+import UserList from "./Admin/Pages/UserList";
+import Gallery from "./pages/Users/Gallery";
+
+import PlacesListA from "./Admin/Pages/PlacesList";
 const App = () => {
   const [isLoggedIn] = useGlobalState("isLoggedIn");
   const [userRole] = useGlobalState("userRole");
@@ -88,6 +92,8 @@ const App = () => {
                       <Route path={`/*`} element={<AdminDashboard />} />
                       <Route path={`/rooms`} element={<RoomBookings />} />
                       <Route path={`/package`} element={<PackBooking />} />
+                      <Route path={`/users`} element={<UserList />} />
+                      <Route path={`/place`} element={<PlacesListA />} />
                       <Route path={`setting`} element={<Setting />} />
                     </Routes>
                   </>
@@ -109,6 +115,7 @@ const App = () => {
               <Route path={`room/:roomId`} element={<Room />} />
               <Route path={`package/:packageId`} element={<Package />} />
               <Route path={`/*`} element={<Landing />} />
+              <Route path={`/gallery`} element={<Gallery />} />
             </Routes>
           </div>
         )}

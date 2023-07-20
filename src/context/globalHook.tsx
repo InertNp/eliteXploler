@@ -13,6 +13,8 @@ const { setGlobalState, useGlobalState } = createGlobalState({
   bookingLoad: true,
   hoteledit: false,
   hadminhotelid: null,
+  userListLoad: false,
+  placesLoadadmin: false,
 });
 
 export { setGlobalState, useGlobalState };

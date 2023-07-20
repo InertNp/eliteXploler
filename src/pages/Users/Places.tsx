@@ -3,14 +3,22 @@ import PlacesList from "../../components/Places/PlacesList";
 
 import axios from "axios";
 import { url } from "../../api/url";
+import { message } from "antd";
 
 const Places = () => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    axios.get(`${url}/places`).then((e) => {
-      setData(e.data.data);
-    });
+    axios
+      .get(`${url}/places`)
+      .then((e) => {
+        setData(e.data.data);
+      })
+      .catch((err) => {
+        if (err) {
+          message.warning("No Places Found");
+        }
+      });
   }, []);
 
   return (

@@ -7,5 +7,5 @@ export const logout = () => {
   setGlobalState("token", "");
   setGlobalState("fullName", "");
   setGlobalState("userRole", "");
-  message.success(`Logout Sucessful`, 1);
+  message.success(`Logout Sucessful`, 0.5);
 };

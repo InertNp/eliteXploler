@@ -6,6 +6,8 @@ const AdminSideBar = () => {
     { key: "hotels", label: <Link to={"/dashboard"}>Hotels</Link> },
     { key: "Room Bookings", label: <Link to={"/rooms"}>Room Bookings</Link> },
     { key: "Packages", label: <Link to={"/package"}>Package Bookings</Link> },
+    { key: "users", label: <Link to={"/users"}>Users</Link> },
+    { key: "places", label: <Link to={"/place"}>Places</Link> },
   ];
   function onClick() {}
   return (

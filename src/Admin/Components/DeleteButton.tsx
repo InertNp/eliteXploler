@@ -3,12 +3,13 @@ import { useState } from "react";
 import { AiOutlineDelete } from "react-icons/ai";
 interface props {
   id: number;
+  url: string;
 }
-const DeleteButton = ({ id }: props) => {
+const DeleteButton = ({ id, url }: props) => {
   const [modal, setModal] = useState(false);
 
   function handleDel() {
-    console.log(id);
+    console.log(id, url);
     setModal(false);
   }
   return (
