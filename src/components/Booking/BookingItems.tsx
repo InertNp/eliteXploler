@@ -1,5 +1,6 @@
 import { List } from "antd";
 import { Link } from "react-router-dom";
+import { formatDate } from "../../utils/FormatDate";
 
 const BookingItems = (data: any) => {
   const item = data.data;
@@ -18,8 +19,8 @@ const BookingItems = (data: any) => {
             Room Type:
             <Link to={`/room/${item.room.id}`}>{item.room.roomType}</Link>
           </p>
-          <p>Check In Date:{item.checkInDate}</p>
-          <p>Check Out Date:{item.checkOutDate}</p>
+          <p>Check In Date:{formatDate(item.checkInDate)}</p>
+          <p>Check Out Date:{formatDate(item.checkOutDate)}</p>
           {/* <p>
             Package Type:<Link to={`/package/1`}>1</Link>
           </p> */}

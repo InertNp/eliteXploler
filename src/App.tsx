@@ -22,6 +22,10 @@ import SideBar from "./HotelAdmin/SideBar/SideBar";
 import { roleAdmin, roleHotelAdmin, roleUser } from "./utils/Role";
 import HAroom from "./pages/HotelAdmin/HAroom";
 import HApack from "./pages/HotelAdmin/HApack";
+import AdminDashboard from "./Admin/Pages/AdminDashboard";
+import AdminSideBar from "./Admin/Components/AdminSidebar";
+import RoomBookings from "./Admin/Pages/RoomBooking";
+import PackBooking from "./Admin/Pages/PackBooking";
 const App = () => {
   const [isLoggedIn] = useGlobalState("isLoggedIn");
   const [userRole] = useGlobalState("userRole");
@@ -79,8 +83,12 @@ const App = () => {
                 ) : null}
                 {userRole === roleAdmin ? (
                   <>
+                    <AdminSideBar />
                     <Routes>
-                      {/* <Route path={`/*`} element={<Dashboard />} /> */}
+                      <Route path={`/*`} element={<AdminDashboard />} />
+                      <Route path={`/rooms`} element={<RoomBookings />} />
+                      <Route path={`/package`} element={<PackBooking />} />
+                      <Route path={`setting`} element={<Setting />} />
                     </Routes>
                   </>
                 ) : null}

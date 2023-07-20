@@ -20,6 +20,7 @@ import { BiPlus } from "react-icons/bi";
 import { useForm } from "antd/es/form/Form";
 import { useGlobalState } from "../../context/globalHook";
 import { header } from "../../api/header";
+import { formatDate } from "../../utils/FormatDate";
 
 const Roomcontainer = ({ hotelId }: any) => {
   const [load, setLoad] = useState(false);
@@ -208,7 +209,7 @@ const Roomcontainer = ({ hotelId }: any) => {
                           });
                       }}
                     >
-                      Approved
+                      Approve
                     </Button>
                     <Button
                       onClick={() => {
@@ -230,8 +231,9 @@ const Roomcontainer = ({ hotelId }: any) => {
                 <div className="flex flex-col items-start  w-full ">
                   <p> Booked by:{item.bookedBy.fullName}</p>
                   <p className="font-light">Staus:{item.status}</p>
-                  <p>Check in Date:{item.checkInDate}</p>
-                  <p>Check out Date:{item.checkOutDate}</p>
+                  <p>Check in Date:{formatDate(item.checkInDate)}</p>
+
+                  <p>Check out Date:{formatDate(item.checkOutDate)}</p>
                   <p>Description:{item.roomDesc}</p>
                 </div>
               </List.Item>
