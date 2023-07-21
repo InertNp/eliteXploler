@@ -13,7 +13,8 @@ export const Login = () => {
         preview={false}
         src={`https://source.unsplash.com/1920x1080`}
         height={600}
-        className=" object-cover hidden lg:block mx-5 "
+        width={600}
+        className=" object-cover hidden lg:block mr-20 "
       />
       <LoginForm />
     </div>

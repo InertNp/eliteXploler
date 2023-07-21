@@ -13,7 +13,8 @@ const Register = () => {
         preview={false}
         src={`https://source.unsplash.com/1920x1080`}
         height={600}
-        className=" object-cover hidden md:block mx-5 my-2 "
+        width={600}
+        className=" object-cover hidden lg:block mr-20 "
       />
       <RegisterForm />
     </div>
