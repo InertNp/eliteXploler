@@ -51,6 +51,7 @@ const Roomcontainer = ({ hotelId }: any) => {
   function handleDelete(id: number) {
     axios.get(`${url}/room/delete?id=${id}`);
     setLoad(!load);
+    window.location.reload();
   }
 
   function AddRoom() {
@@ -84,6 +85,7 @@ const Roomcontainer = ({ hotelId }: any) => {
       );
       form.resetFields();
       setAddRoom(false);
+      window.location.reload();
     }
     return (
       <Modal
@@ -295,7 +297,7 @@ const Roomcontainer = ({ hotelId }: any) => {
         dataSource={data}
         pagination={{
           align: "center",
-          pageSize: 3,
+          pageSize: 2,
           hideOnSinglePage: true,
         }}
         renderItem={(item: any) => {
@@ -358,7 +360,7 @@ const Roomcontainer = ({ hotelId }: any) => {
                 <p className="py-2">Price:NRs.{item.price}</p>
                 <p>Beds:{item.bed}</p>
                 <p>Total Person:{item.totalPerson}</p>
-                <p>Description:{item.roomDesc}</p>
+                <p>Description:{item.roomDesc.substring(0, 90)}....</p>
               </div>
             </List.Item>
           );

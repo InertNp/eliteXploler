@@ -59,6 +59,7 @@ const App = () => {
               // here if user role is User and is loggedin
               <div>
                 <Routes>
+                  <Route path={`/gallery`} element={<Gallery />} />
                   <Route path={`booking`} element={<Booking />} />
                   <Route path={`setting`} element={<Setting />} />
                   <Route path={`about`} element={<About />} />

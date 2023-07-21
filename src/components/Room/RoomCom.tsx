@@ -53,7 +53,11 @@ const RoomCom = ({ roomId }: any) => {
           <Rate />
         </Form.Item>
         <Form.Item
-          rules={[{ required: true, message: "Please Enter Description" }]}
+          rules={[
+            { required: true, message: "Please Enter Description" },
+            { max: 100, message: "Only 100 characters are allowded." },
+            { min: 10, message: "write more" },
+          ]}
           name={"desc"}
           colon={false}
           label={<h1 className={styleHead}>Description:</h1>}

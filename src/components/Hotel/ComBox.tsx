@@ -34,13 +34,13 @@ const ComBox = ({ hotelId }: HotelIdprops) => {
       });
   }
   return (
-    <Card className="w-full flex flex-col  items-center">
+    <Card className="w-full flex flex-col  items-center ">
       <h1 className="m-0 p-0 capitalize">{fullName}</h1>
 
       <Form
         form={form}
         onFinish={handleFinish}
-        className=" h-40  flex flex-col items-start"
+        className=" h-96  flex flex-col items-start"
         requiredMark={true}
       >
         <Form.Item
@@ -53,13 +53,20 @@ const ComBox = ({ hotelId }: HotelIdprops) => {
           <Rate />
         </Form.Item>
         <Form.Item
-          rules={[{ required: true, message: "Please Enter Description" }]}
+          rules={[
+            { required: true, message: "Please Enter Description" },
+            { max: 100, message: "Only 100 characters are allowded." },
+            { min: 10, message: "write more" },
+          ]}
           name={"desc"}
           colon={false}
           label={<h1 className={styleHead}>Description:</h1>}
           className="flex flex-row items-center"
         >
-          <Input className="w-96" />
+          <Input.TextArea
+            className="w-96 max-h-[200px] "
+            style={{ minHeight: "200px" }}
+          />
         </Form.Item>
         <Button htmlType="submit">Review</Button>
       </Form>

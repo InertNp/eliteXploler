@@ -64,6 +64,7 @@ const PackContainer = ({ hotelId }: any) => {
                 <List.Item.Meta />
                 <div className="flex flex-col items-start  w-full ">
                   <p> Booked by:{item.bookedBy.fullName}</p>
+                  <p>Ph .No:{item.bookedBy.phoneNo}</p>
                   <p className="font-light">Staus:{item.status}</p>
                   <p>Check in Date:{formatDate(item.checkInDate)}</p>
 
@@ -87,7 +88,7 @@ const PackContainer = ({ hotelId }: any) => {
           price: e.price,
           hotelId: hotelId,
           packageName: e.name,
-          packageDesc: e.price,
+          packageDesc: e.desc,
         },
         header(token)
       );
